@@ -1,0 +1,7 @@
+every scene is in the scenes Package and in the Scenes Enum. 
+scenes are handelt over the scenehandler. 
+the repaint thread and the displayed scene gets automatically changed over schuffelTo(Scenes)
+It is designed that way so that you get 3 autonomous modules (Login, Menu, Game) which can then be developed separately and switched between easily.
+For now that only counts for the displaying of the scenes. A system for the gamelogig is not jet in place
+
+
