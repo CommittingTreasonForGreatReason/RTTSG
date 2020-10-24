@@ -6,14 +6,15 @@ import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import infrastructure.MainRTTSG;
+import infrastructure.*;
+import input.KeyHandler;
+import input.MouseHandler;
 import scenes.Login;
 import scenes.Menu;
-import scenes.Scenes;
 
 public class GUI {
 	private JFrame jf;
-	
+	private Draw draw;
 
 //Constructor ------------------------------------------------------------------------------------------
 	public GUI() {
@@ -25,15 +26,16 @@ public class GUI {
 //methods ----------------------------------------------------------------------------------------------
 	public void initiateJFrame() {
 		jf = new JFrame();
-		jf.setSize(900, 700);
+		jf.setSize(Settings.windowWidth, Settings.windowHeight);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		draw = new Draw();
+		jf.add(draw);
+		jf.addKeyListener(new KeyHandler());
+		jf.addMouseListener(new MouseHandler());
 		jf.setVisible(true);
 	}
 
-	public void addPanel(JPanel containerPanel) {
-		jf.add(containerPanel);
-	}
 
 //getter-setter ----------------------------------------------------------------------------------------
 

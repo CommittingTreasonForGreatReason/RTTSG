@@ -12,8 +12,9 @@ public class MainRTTSG {
 	public static SceneHandler sceneHandler;
 	
 	public static void main(String[] args) {
-		gui = new GUI();
 		sceneHandler = new SceneHandler();
+		gui = new GUI();
+		
 	}
 }
 

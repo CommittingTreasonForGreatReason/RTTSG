@@ -6,9 +6,12 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-public class Menu extends JPanel{
-	public String name = "Menu";
+import infrastructure.Settings;
 
+public class Menu{
+	public String name = "Menu";
+	public Graphics2D g = null;
+	
 //Constructor ------------------------------------------------------------------------------------------
 
 //methods ----------------------------------------------------------------------------------------------
@@ -16,11 +19,13 @@ public class Menu extends JPanel{
 //getter-setter ----------------------------------------------------------------------------------------
 
 //paint ------------------------------------------------------------------------------------------------
-	@Override
-	public void paint(Graphics graphics) {
-		Graphics2D g = (Graphics2D) graphics;
-		System.out.println("paint green");
-		g.setColor(Color.GREEN);
-		g.fillRect(0, 0, 200, 200);
+	public void paint(Graphics2D g) {
+		this.g = g;
+		drawBackground();
+	}
+	
+	public void drawBackground() {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, Settings.windowWidth, Settings.windowHeight);
 	}
 }

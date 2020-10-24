@@ -61,6 +61,7 @@ public class TextInputField {
 		this.x = x;
 		this.y = y;
 		setImage("lupe_rechtsschauend.png");
+		curserAnim = new CurserAnimation(this);
 	}
 
 	public TextInputField(int x, int y, int width, int height) {
@@ -159,11 +160,11 @@ public class TextInputField {
 	}
 
 	public void setDistanceTextToBottom(double distanceTextToBottom) {
-		this.distanceTextToBottom = distanceTextToBottom / 10;
+		this.distanceTextToBottom = distanceTextToBottom / 100;
 	}
 
 	public void setDistanceTextToLeft(double distanceTextToLeft) {
-		this.distanceTextToLeft = distanceTextToLeft / 10;
+		this.distanceTextToLeft = distanceTextToLeft / 100;
 	}
 
 	public void setSelected(boolean state) {
@@ -249,6 +250,7 @@ public class TextInputField {
 			g.fillRoundRect(x, y, width, height, (int) (width * 0.15), (int) (height));
 			break;
 		case edgy:
+			g.setColor(backgroundColor);
 			g.fillRect(x, y, width, height);
 			break;
 		default:
@@ -291,7 +293,7 @@ public class TextInputField {
 		textHeight = fMetric.getMaxAscent();
 
 		g.drawString(text, (int) ((width * distanceTextToLeft) + x),
-				(int) (y + height - (height * (distanceTextToBottom + 0.04))));
+				(int) (y + height - (height * (distanceTextToBottom + 0.12))));
 	}
 
 }
